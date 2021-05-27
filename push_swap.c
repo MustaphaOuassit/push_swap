@@ -24,6 +24,6 @@ int main(int argc,char **argv)
         numbers[i] = ft_atoi(argv[i + 1]);
         i++;
     }
-    push_swap(numbers);
+    push_swap(numbers,argc - 1);
     return(0);
 }

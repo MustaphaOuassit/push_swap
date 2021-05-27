@@ -12,7 +12,15 @@
 
 NAME = push_swap
 
-SRC = push_swap.c
+SRC = push_swap.c \
+	  functions_help.c \
+	  instructions.c \
+	  push.c
+
+OBJECT = push_swap.o \
+		functions_help.o \
+		instructions.o \
+		push.o
 
 all : $(NAME)
 

@@ -14,5 +14,12 @@
 #define PUSH_SWAP_H
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+size_t ft_strlen(const char *str);
+int		ft_atoi(const char *str);
+void    push_swap(int *numbers);
+int     *sa(int *numbers);
 
 #endif

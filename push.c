@@ -1,29 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mouassit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/25 11:05:06 by mouassit          #+#    #+#             */
-/*   Updated: 2021/05/25 11:05:09 by mouassit         ###   ########.fr       */
+/*   Created: 2021/05/27 18:29:04 by mouassit          #+#    #+#             */
+/*   Updated: 2021/05/27 18:29:07 by mouassit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc,char **argv)
+int check_sort(int *numbers)
 {
-    int *numbers;
     int i;
 
-    numbers = (int*)malloc((argc - 1)*sizeof(int));
     i = 0;
-    while(i != argc - 1)
+    while(i != 3)
     {
-        numbers[i] = ft_atoi(argv[i + 1]);
+        if(((i + 1) < 3) && (numbers[i] < numbers[i + 1]))
+            i = 1;
+        else
+        {
+            i = 0;
+            break;
+        }
         i++;
     }
-    push_swap(numbers);
-    return(0);
+    return(i);
+}
+
+void    push_swap(int *numbers)
+{
+    numbers =  sa(numbers);
+    printf("%d %d %d\n",numbers[0],numbers[1],numbers[2]);
+    if(check_sort(numbers))
+        write(1,"sa\n",3);
 }

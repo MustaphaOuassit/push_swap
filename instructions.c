@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   instructions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mouassit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/25 11:05:06 by mouassit          #+#    #+#             */
-/*   Updated: 2021/05/25 11:05:09 by mouassit         ###   ########.fr       */
+/*   Created: 2021/05/27 17:27:45 by mouassit          #+#    #+#             */
+/*   Updated: 2021/05/27 17:27:47 by mouassit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc,char **argv)
+int *sa(int *numbers)
 {
-    int *numbers;
     int i;
+    int take;
 
-    numbers = (int*)malloc((argc - 1)*sizeof(int));
     i = 0;
-    while(i != argc - 1)
-    {
-        numbers[i] = ft_atoi(argv[i + 1]);
-        i++;
-    }
-    push_swap(numbers);
-    return(0);
+    take = numbers[0];
+    numbers[0] = numbers[1];
+    numbers[1] = take;
+    return(numbers);
 }

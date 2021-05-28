@@ -26,23 +26,14 @@ int *ra(int *numbers, int len_numbers)
 {
     int take;
     int i;
-    int j;
 
     i = 0;
-    j = 1;
     take = numbers[len_numbers - 1];
-    while (i != len_numbers)
-    {
-        if(i == 0)
-            numbers[len_numbers - (i + 1)] = numbers[i];
-        i++;
-    }
-    i = 0;
+    numbers[len_numbers - 1] = numbers[0];
     while (i != len_numbers - 2)
     {
-        numbers[i] = numbers[len_numbers - (len_numbers - j)];
+        numbers[i] = numbers[i + 1];
         i++;
-        j++;
     }
     numbers[len_numbers - 2] = take;
     return(numbers);
@@ -52,18 +43,17 @@ int    *rra(int *numbers, int len_numbers)
 {
     int take;
     int i;
-    int j;
+    int len = len_numbers;
 
     i = 0;
-    j = 1;
-    take = numbers[len_numbers - 1];
-    numbers[len_numbers - 1] = numbers[0];
-    while (i != len_numbers - 2)
+    take = numbers[0];
+    numbers[0] = numbers[len_numbers - 1];
+    while (i != len_numbers - 1)
     {
-        numbers[i] = numbers[len_numbers - (len_numbers - j)];
+        numbers[len - 1] = numbers[len - 2];
+        len--;
         i++;
-        j++;
     }
-    numbers[len_numbers - 2] = take;
+    numbers[1] = take;
     return(numbers);
 }

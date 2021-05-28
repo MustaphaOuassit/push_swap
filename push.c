@@ -39,8 +39,15 @@ int check_sort(int *numbers, int len_numbers)
 void    push_swap(int *numbers, int len_numbers)
 {
     //numbers =  sa(numbers);
-    numbers =  ra(numbers,len_numbers);
-    write(1,"ra\n",3);
-    printf("%d %d %d\n",numbers[0],numbers[1],numbers[2]);
+    //numbers =  ra(numbers,len_numbers);
+    int i = 0;
+    numbers =  rra(numbers,len_numbers);
+    write(1,"rra\n",4);
+    while (i != len_numbers)
+    {
+        printf("%d ",numbers[i]);
+        i++;
+    }
+    printf("\n");
     //if(check_sort(numbers))
 }

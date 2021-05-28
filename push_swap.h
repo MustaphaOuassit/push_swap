@@ -21,5 +21,5 @@ size_t ft_strlen(const char *str);
 int		ft_atoi(const char *str);
 void    push_swap(int *numbers, int len_numbers);
 int     *sa(int *numbers);
-
+int     *ra(int *numbers, int len_numbers);
 #endif

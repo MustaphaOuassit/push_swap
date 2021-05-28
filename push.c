@@ -38,21 +38,9 @@ int check_sort(int *numbers, int len_numbers)
 
 void    push_swap(int *numbers, int len_numbers)
 {
-    numbers =  sa(numbers);
-    write(1,"sa\n",3);
-
-    function counter(currentMount)
-    {
-        while(i != ele.length)
-        {
-            if(ele[i].textContent == "May")
-            {
-                let g = ele[i].querySelector('g');
-                console.log(g[i]);
-            }
-            i++;
-        }
-    }
-    /*printf("%d %d %d\n",numbers[0],numbers[1],numbers[2]);
-    if(check_sort(numbers))*/
+    //numbers =  sa(numbers);
+    numbers =  ra(numbers,len_numbers);
+    write(1,"ra\n",3);
+    printf("%d %d %d\n",numbers[0],numbers[1],numbers[2]);
+    //if(check_sort(numbers))
 }

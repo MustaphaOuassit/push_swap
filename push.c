@@ -36,21 +36,22 @@ int check_sort(int *numbers, int len_numbers)
     return(j);
 }
 
-void    push_swap(int *stack_a, int *stack_b, int len_numbers)
+void print(int *numbers)
 {
-    /*
-    numbers =  sa(numbers);
-    numbers =  ra(numbers,len_numbers);
-    numbers =  rra(numbers,len_numbers);
-    int i = 0;
-    stack_a =  pa(stack_a, len_numbers);
-    write(1,"pa\n",4);
-    
-    while (i != len_numbers)
+    int i;
+
+    i = 0;
+    while (i != g_ln)
     {
         printf("%d ",numbers[i]);
         i++;
     }
-    printf("\n");
-    if(check_sort(numbers))*/
+    printf("\n");    
+}
+
+void    push_swap(t_stacks stack, int len_numbers)
+{
+    int *numbers = sa(stack.a);
+    len_numbers = 0;
+    print(numbers);
 }

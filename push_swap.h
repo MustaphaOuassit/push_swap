@@ -17,11 +17,19 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+typedef struct push_swap
+{
+    int *a;
+    int *b;
+}               t_stacks;
+
+int g_ln;
+
 size_t ft_strlen(const char *str);
 int		ft_atoi(const char *str);
-void    push_swap(int *stack_a, int *stack_b, int len_numbers);
+void    push_swap(t_stacks stack, int len_numbers);
 int     *sa(int *stack_a);
 int     *ra(int *stack_a, int len_numbers);
 int     *rra(int *stack_a, int len_numbers);
-int     *pa(int *stack_, int len_numbers);
+int     *pa(int *stack_a, int len_numbers);
 #endif

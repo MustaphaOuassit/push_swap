@@ -14,19 +14,19 @@
 
 int main(int argc,char **argv)
 {
-    int *stack_a;
-    int *stack_b;
+    t_stacks stack;
     int i;
 
-    stack_a = (int*)malloc((argc - 1)*sizeof(int));
-    stack_b = (int*)malloc((argc - 1)*sizeof(int));
+    g_ln = argc - 1;
+    stack.a = (int*)malloc((argc - 1)*sizeof(int));
+    stack.b = (int*)malloc((argc - 1)*sizeof(int));
     i = 0;
     while(i != argc - 1)
     {
-        stack_a[i] = ft_atoi(argv[i + 1]);
+        stack.a[i] = ft_atoi(argv[i + 1]);
         i++;
     }
-    push_swap(stack_a,stack_b,argc - 1);
-    free(stack_a);
+    push_swap(stack,argc - 1);
+    free(stack.a);
     return(0);
 }

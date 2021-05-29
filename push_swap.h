@@ -19,8 +19,9 @@
 
 size_t ft_strlen(const char *str);
 int		ft_atoi(const char *str);
-void    push_swap(int *numbers, int len_numbers);
-int     *sa(int *numbers);
-int     *ra(int *numbers, int len_numbers);
-int     *rra(int *numbers, int len_numbers);
+void    push_swap(int *stack_a, int *stack_b, int len_numbers);
+int     *sa(int *stack_a);
+int     *ra(int *stack_a, int len_numbers);
+int     *rra(int *stack_a, int len_numbers);
+int     *pa(int *stack_, int len_numbers);
 #endif

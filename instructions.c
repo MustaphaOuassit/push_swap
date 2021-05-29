@@ -57,3 +57,12 @@ int    *rra(int *numbers, int len_numbers)
     numbers[1] = take;
     return(numbers);
 }
+
+int *pa(int *numbers, int len_numbers)
+{
+    int *stack_a;
+
+    stack_a = (int*)malloc((len_numbers)*sizeof(int));
+    stack_a[0] = numbers[len_numbers - 1];
+    return(stack_a);
+}

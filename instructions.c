@@ -23,6 +23,7 @@ int sa(int *stack_a)
     take = table[0];
     table[0] = table[1];
     table[1] = take;
+    swap_to(stack_a, table);
     write(1,"sa\n",ft_strlen("sa") + 1);
     if(check_sort(table,len_numbers))
         return(1);
@@ -47,6 +48,7 @@ int    ra(int *stack_a)
         i++;
     }
     table[len_numbers - 2] = take;
+    swap_to(stack_a, table);
     write(1,"ra\n",ft_strlen("ra") + 1);
     if(check_sort(table, len_numbers))
         return(1);
@@ -74,6 +76,7 @@ int    rra(int *stack_a)
         i++;
     }
     table[1] = take;
+    swap_to(stack_a, table);
     write(1,"rra\n",ft_strlen("rra") + 1);
     if(check_sort(table,len_numbers))
         return(1);

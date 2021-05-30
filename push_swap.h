@@ -30,6 +30,8 @@ size_t ft_strlen(const char *str);
 int		ft_atoi(const char *str);
 void	ft_remove_element(int *stack, int *table);
 int     check_sort(int *numbers, int len_numbers);
+void    swap_to(int *stack, int *table);
+void    print(int *numbers);
 int		ft_size_table(int *table);
 void    push_swap(t_stacks stack);
 int     sa(int *stack_a);

@@ -36,11 +36,23 @@ int check_sort(int *numbers, int len_numbers)
     return(j);
 }
 
-void print(int *numbers)
+void    swap_to(int *stack, int *table)
 {
     int i;
 
     i = 0;
+    while (i != stack[0])
+    {
+        stack[i + 1] = table[i];
+        i++;
+    }
+}
+
+void print(int *numbers)
+{
+    int i;
+
+    i = 1;
     while (i != g_ln)
     {
         printf("%d ",numbers[i]);
@@ -51,6 +63,10 @@ void print(int *numbers)
 
 void    push_swap(t_stacks stack)
 {
-    if(sa(stack.a))
-        printf("yes\n");
+    sa(stack.a);
+    print(stack.a);
+    ra(stack.a);
+    print(stack.a);
+    rra(stack.a);
+    print(stack.a);
 }

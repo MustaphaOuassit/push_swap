@@ -82,3 +82,9 @@ int    rra(int *stack_a)
         return(1);
     return(0);
 }
+
+int     pa(int *stack_a, int *stack_b)
+{
+    stack_b[0] = stack_a[stack_a[0]];
+   return(0); 
+}

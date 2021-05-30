@@ -63,10 +63,6 @@ void print(int *numbers)
 
 void    push_swap(t_stacks stack)
 {
-    sa(stack.a);
-    print(stack.a);
-    ra(stack.a);
-    print(stack.a);
-    rra(stack.a);
-    print(stack.a);
+    pa(stack.a,stack.b);
+    printf("%d\n",stack.b[0]);
 }

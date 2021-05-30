@@ -21,15 +21,19 @@ typedef struct push_swap
 {
     int *a;
     int *b;
-}               t_stacks;
+    int len_numbers;
+}           t_stacks;
 
 int g_ln;
 
 size_t ft_strlen(const char *str);
 int		ft_atoi(const char *str);
-void    push_swap(t_stacks stack, int len_numbers);
-int     *sa(int *stack_a);
-int     *ra(int *stack_a, int len_numbers);
-int     *rra(int *stack_a, int len_numbers);
-int     *pa(int *stack_a, int len_numbers);
+void	ft_remove_element(int *stack, int *table);
+int     check_sort(int *numbers, int len_numbers);
+int		ft_size_table(int *table);
+void    push_swap(t_stacks stack);
+int     sa(int *stack_a);
+int     ra(int *stack_a);
+int     rra(int *stack_a);
+int     pa(int *stack_a);
 #endif

@@ -17,16 +17,17 @@ int main(int argc,char **argv)
     t_stacks stack;
     int i;
 
-    g_ln = argc - 1;
-    stack.a = (int*)malloc((argc - 1)*sizeof(int));
-    stack.b = (int*)malloc((argc - 1)*sizeof(int));
-    i = 0;
-    while(i != argc - 1)
+    g_ln = argc;
+    stack.a = (int*)malloc((argc)*sizeof(int));
+    stack.b = (int*)malloc((argc)*sizeof(int));
+    i = 1;
+    stack.a[0] = argc - 1;
+    while(i != argc)
     {
-        stack.a[i] = ft_atoi(argv[i + 1]);
+        stack.a[i] = ft_atoi(argv[i]);
         i++;
     }
-    push_swap(stack,argc - 1);
+    push_swap(stack);
     free(stack.a);
     return(0);
 }

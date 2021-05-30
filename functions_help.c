@@ -50,3 +50,19 @@ int		ft_atoi(const char *str)
 	return (nb * is_negatif);
 }
 
+int		ft_size_table(int *table)
+{
+    int size = sizeof *table / sizeof table[0];
+	return(size);
+}
+
+void		ft_remove_element(int *stack,int *table)
+{
+	int i;
+	i = 0;
+	while (i != stack[0])
+	{
+		table[i] = stack[i + 1];
+		i++;
+	}
+}

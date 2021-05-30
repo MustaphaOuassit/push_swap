@@ -49,9 +49,8 @@ void print(int *numbers)
     printf("\n");    
 }
 
-void    push_swap(t_stacks stack, int len_numbers)
+void    push_swap(t_stacks stack)
 {
-    int *numbers = sa(stack.a);
-    len_numbers = 0;
-    print(numbers);
+    if(sa(stack.a))
+        printf("yes\n");
 }

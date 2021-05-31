@@ -24,8 +24,6 @@ typedef struct push_swap
     int len_numbers;
 }           t_stacks;
 
-int g_ln;
-
 size_t ft_strlen(const char *str);
 int		ft_atoi(const char *str);
 void	ft_remove_element(int *stack, int *table);
@@ -37,5 +35,5 @@ void    push_swap(t_stacks stack);
 int     sa(int *stack_a);
 int     ra(int *stack_a);
 int     rra(int *stack_a);
-int     pa(int *stack_a, int *stack_b);
+int     pb(int *stack_a, int *stack_b);
 #endif

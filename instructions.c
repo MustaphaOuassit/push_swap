@@ -83,8 +83,14 @@ int    rra(int *stack_a)
     return(0);
 }
 
-int     pa(int *stack_a, int *stack_b)
+int     pb(int *stack_a, int *stack_b)
 {
-    stack_b[0] = stack_a[stack_a[0]];
+    if(stack_a[0] > 0)
+    {
+        stack_b[stack_b[0] + 1] = stack_a[stack_a[0]];
+        stack_b[0] = stack_b[0] + 1;
+        stack_a[0] = stack_a[0] - 1;
+        write(1,"pb\n",ft_strlen("pb") + 1);
+    }
    return(0); 
 }

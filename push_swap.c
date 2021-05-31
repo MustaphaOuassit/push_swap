@@ -16,12 +16,12 @@ int main(int argc,char **argv)
 {
     t_stacks stack;
     int i;
-
-    g_ln = argc;
+    
     stack.a = (int*)malloc((argc)*sizeof(int));
     stack.b = (int*)malloc((argc)*sizeof(int));
     i = 1;
     stack.a[0] = argc - 1;
+    stack.b[0] = 0;
     while(i != argc)
     {
         stack.a[i] = ft_atoi(argv[i]);

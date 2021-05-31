@@ -53,7 +53,7 @@ void print(int *numbers)
     int i;
 
     i = 1;
-    while (i != g_ln)
+    while (i != numbers[0] + 1)
     {
         printf("%d ",numbers[i]);
         i++;
@@ -63,6 +63,7 @@ void print(int *numbers)
 
 void    push_swap(t_stacks stack)
 {
-    pa(stack.a,stack.b);
-    printf("%d\n",stack.b[0]);
+    pb(stack.a,stack.b);
+    pb(stack.a,stack.b);
+    pb(stack.a,stack.b);
 }

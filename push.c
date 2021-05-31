@@ -65,5 +65,11 @@ void    push_swap(t_stacks stack)
 {
     pb(stack.a,stack.b);
     pb(stack.a,stack.b);
-    pb(stack.a,stack.b);
+    sa(stack.a);
+    ra(stack.a);
+    pa(stack.a,stack.b);
+    ra(stack.a);
+    pa(stack.a,stack.b);
+    print(stack.a);
+    print(stack.b);
 }

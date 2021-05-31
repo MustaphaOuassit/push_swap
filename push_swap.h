@@ -36,4 +36,5 @@ int     sa(int *stack_a);
 int     ra(int *stack_a);
 int     rra(int *stack_a);
 int     pb(int *stack_a, int *stack_b);
+int     pa(int *stack_a, int *stack_b);
 #endif

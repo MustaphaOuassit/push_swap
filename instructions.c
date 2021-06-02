@@ -105,25 +105,25 @@ int    rra(int *stack_a)
     return(0);
 }
 
-int     pa(int *stack_a, int *stack_b)
+int     pa(t_stacks stack)
 {
-    if(stack_b[0] > 0)
+    if(stack.b[0] > 0)
     {
-        stack_a[stack_a[0] + 1] = stack_b[stack_b[0]];
-        stack_a[0] = stack_a[0] + 1;
-        stack_b[0] = stack_b[0] - 1;
+        stack.a[stack.a[0] + 1] = stack.b[stack.b[0]];
+        stack.a[0] = stack.a[0] + 1;
+        stack.b[0] = stack.b[0] - 1;
         write(1,"pa\n",ft_strlen("pa") + 1);
     }
    return(0); 
 }
 
-int     pb(int *stack_a, int *stack_b)
+int     pb(t_stacks stack)
 {
-    if(stack_a[0] > 0)
+    if(stack.a[0] > 0)
     {
-        stack_b[stack_b[0] + 1] = stack_a[stack_a[0]];
-        stack_b[0] = stack_b[0] + 1;
-        stack_a[0] = stack_a[0] - 1;
+        stack.b[stack.b[0] + 1] = stack.a[stack.a[0]];
+        stack.b[0] = stack.b[0] + 1;
+        stack.a[0] = stack.a[0] - 1;
         write(1,"pb\n",ft_strlen("pb") + 1);
     }
    return(0); 

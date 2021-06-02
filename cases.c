@@ -40,3 +40,9 @@ void    three_numbers(int *stack)
     && (stack[i - 2] < stack[i]))
         rra(stack);
 }
+
+void    five_numbers(t_stacks stack)
+{
+    pb(stack);
+    pb(stack);
+}

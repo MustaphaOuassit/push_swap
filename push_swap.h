@@ -33,9 +33,10 @@ void    print(int *numbers);
 int		ft_size_table(int *table);
 void    push_swap(t_stacks stack);
 void    three_numbers(int *stack);
+void    five_numbers(t_stacks stack);
 int     sa(int *stack_a);
 int     ra(int *stack_a);
 int     rra(int *stack_a);
-int     pb(int *stack_a, int *stack_b);
-int     pa(int *stack_a, int *stack_b);
+int     pb(t_stacks stack);
+int     pa(t_stacks stack);
 #endif

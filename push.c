@@ -65,5 +65,8 @@ void    push_swap(t_stacks stack)
 {
     if(stack.a[0] == 3)
         three_numbers(stack.a);
+    if(stack.a[0] == 5)
+        five_numbers(stack);
     print(stack.a);
+    print(stack.b);
 }

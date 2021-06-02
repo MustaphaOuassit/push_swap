@@ -64,27 +64,37 @@ void print(int *numbers)
 void    add_numbers(t_stacks stack)
 {
     int i;
+    int j;
 
     i = 1;
+    j = 0;
     while (i != stack.a[0] + 1)
     {
         if(stack.a[stack.a[0]] < stack.a[stack.a[0] - i])
             break;
         i++;
     }
-    /*
-    if(i == stack[0] + 1)
-        ra(stack);
+    if(i == stack.a[0] + 1)
+        ra(stack.a);
     if(i == 2)
-        sa(stack);*/
-        printf("i : %d\n", i);
-        if(i == 3)
+        sa(stack.a);
+    if((i > 2) && (i < stack.a[0] + 1))
+    {
+        printf("i : %d\n", i / 2);
+        while (j != i / 2)
         {
             sa(stack.a);
             pb(stack);
-            sa(stack.a);
-            pa(stack);
+            j++;
         }
+        sa(stack.a);
+        j = 0;
+        while (j != i / 2)
+        {
+            pa(stack);
+            j++;
+        }
+    }
 }
 
 void    push_swap(t_stacks stack)

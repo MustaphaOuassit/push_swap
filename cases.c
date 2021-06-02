@@ -49,5 +49,5 @@ void    five_numbers(t_stacks stack)
     pa(stack);
     add_numbers(stack);
     pa(stack);
-    //add_numbers(stack.a);
+    add_numbers(stack);
 }

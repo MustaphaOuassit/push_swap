@@ -17,7 +17,7 @@ void    three_numbers(int *stack)
 {
     int i;
 
-    i = 3;
+    i = stack[0];
     if((stack[i - 1] < stack[i]) && (stack[i - 1] < stack[i - 2])
     && (stack[i - 2] > stack[i]))
         sa(stack);

@@ -74,13 +74,10 @@ void    add_numbers(t_stacks stack)
             break;
         i++;
     }
-    if(i == stack.a[0] + 1)
+    if(i == stack.a[0])
         ra(stack.a);
-    if(i == 2)
-        sa(stack.a);
-    if((i > 2) && (i < stack.a[0] + 1))
+    else if((i > 2) && (i < stack.a[0] + 1))
     {
-        printf("i : %d\n", i / 2);
         while (j != i / 2)
         {
             sa(stack.a);
@@ -95,13 +92,15 @@ void    add_numbers(t_stacks stack)
             j++;
         }
     }
+    if(i == 2)
+        sa(stack.a);
 }
 
 void    push_swap(t_stacks stack)
 {
-    if(stack.a[0] == 3)
+    if(stack.a[0] <= 3)
         three_numbers(stack.a);
-    if((stack.a[0] == 4) || (stack.a[0] == 5))
+    if(stack.a[0] == 5 || stack.a[0] == 4)
         five_numbers(stack);
     print(stack.a);
     print(stack.b);

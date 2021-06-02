@@ -45,4 +45,9 @@ void    five_numbers(t_stacks stack)
 {
     pb(stack);
     pb(stack);
+    three_numbers(stack.a);
+    pa(stack);
+    add_numbers(stack);
+    pa(stack);
+    //add_numbers(stack.a);
 }

@@ -61,11 +61,37 @@ void print(int *numbers)
     printf("\n");    
 }
 
+void    add_numbers(t_stacks stack)
+{
+    int i;
+
+    i = 1;
+    while (i != stack.a[0] + 1)
+    {
+        if(stack.a[stack.a[0]] < stack.a[stack.a[0] - i])
+            break;
+        i++;
+    }
+    /*
+    if(i == stack[0] + 1)
+        ra(stack);
+    if(i == 2)
+        sa(stack);*/
+        printf("i : %d\n", i);
+        if(i == 3)
+        {
+            sa(stack.a);
+            pb(stack);
+            sa(stack.a);
+            pa(stack);
+        }
+}
+
 void    push_swap(t_stacks stack)
 {
     if(stack.a[0] == 3)
         three_numbers(stack.a);
-    if(stack.a[0] == 5)
+    if((stack.a[0] == 4) || (stack.a[0] == 5))
         five_numbers(stack);
     print(stack.a);
     print(stack.b);

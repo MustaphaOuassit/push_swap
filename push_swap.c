@@ -24,10 +24,11 @@ int main(int argc,char **argv)
     stack.b[0] = 0;
     while(i != argc)
     {
-        stack.a[i] = ft_atoi(argv[i]);
+        stack.a[stack.a[0] - i + 1] = ft_atoi(argv[i]);
         i++;
     }
     push_swap(stack);
+    //print(stack.a);
     free(stack.a);
     return(0);
 }

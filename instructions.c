@@ -82,42 +82,27 @@ int    ra(int *stack_a)
 
 int    rra(int *stack_a)
 {
-    int len_numbers;
+        int len_numbers;
     int table[stack_a[0]];
     int take;
     int i;
-    int len;
-    
+
     i = 0;
     len_numbers = stack_a[0];
     ft_remove_element(stack_a,table);
-    len = len_numbers;
-    take = table[0];
-    table[0] = table[len_numbers - 1];
-    while (i != len_numbers - 1)
+    take = table[len_numbers - 1];
+    table[len_numbers - 1] = table[0];
+    while (i != len_numbers - 2)
     {
-       table[len - 1] = table[len - 2];
-        len--;
+        table[i] = table[i + 1];
         i++;
     }
-    table[1] = take;
+    table[len_numbers - 2] = take;
     swap_to(stack_a, table);
     write(1,"rra\n",ft_strlen("rra") + 1);
-    if(check_sort(table,len_numbers))
+    if(check_sort(table, len_numbers))
         return(1);
     return(0);
-}
-
-int     pb(int *stack_a, int *stack_b)
-{
-    if(stack_a[0] > 0)
-    {
-        stack_b[stack_b[0] + 1] = stack_a[stack_a[0]];
-        stack_b[0] = stack_b[0] + 1;
-        stack_a[0] = stack_a[0] - 1;
-        write(1,"pb\n",ft_strlen("pb") + 1);
-    }
-   return(0); 
 }
 
 int     pa(int *stack_a, int *stack_b)
@@ -128,6 +113,18 @@ int     pa(int *stack_a, int *stack_b)
         stack_a[0] = stack_a[0] + 1;
         stack_b[0] = stack_b[0] - 1;
         write(1,"pa\n",ft_strlen("pa") + 1);
+    }
+   return(0); 
+}
+
+int     pb(int *stack_a, int *stack_b)
+{
+    if(stack_a[0] > 0)
+    {
+        stack_b[stack_b[0] + 1] = stack_a[stack_a[0]];
+        stack_b[0] = stack_b[0] + 1;
+        stack_a[0] = stack_a[0] - 1;
+        write(1,"pb\n",ft_strlen("pb") + 1);
     }
    return(0); 
 }

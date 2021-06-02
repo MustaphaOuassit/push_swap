@@ -63,13 +63,29 @@ void print(int *numbers)
 
 void    push_swap(t_stacks stack)
 {
-    pb(stack.a, stack.b);
-    pb(stack.a, stack.b);
-    sa(stack.a);
-    ra(stack.a);
-    pa(stack.a,stack.b);
-    ra(stack.a);
-    pa(stack.a,stack.b);
+    int i;
+
+    i = 3;
+    if((stack.a[i - 1] < stack.a[i]) && (stack.a[i - 1] < stack.a[i - 2])
+    && (stack.a[i - 2] > stack.a[i]))
+        sa(stack.a);
+    else if((stack.a[i - 1] < stack.a[i]) && (stack.a[i - 1] > stack.a[i - 2])
+    && (stack.a[i - 2] < stack.a[i]))
+    {
+        sa(stack.a);
+        rra(stack.a);
+    }
+    else if((stack.a[i - 1] < stack.a[i]) && (stack.a[i - 1] < stack.a[i - 2])
+    && (stack.a[i - 2] < stack.a[i]))
+        ra(stack.a);
+    else if((stack.a[i - 1] > stack.a[i]) && (stack.a[i - 1] > stack.a[i - 2])
+    && (stack.a[i - 2] > stack.a[i]))
+    {
+        sa(stack.a);
+        ra(stack.a);
+    }
+    else if((stack.a[i - 1] > stack.a[i]) && (stack.a[i - 1] > stack.a[i - 2])
+    && (stack.a[i - 2] < stack.a[i]))
+        rra(stack.a);
     print(stack.a);
-    print(stack.b);
 }

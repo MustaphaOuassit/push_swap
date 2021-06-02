@@ -15,12 +15,14 @@ NAME = push_swap
 SRC = push_swap.c \
 	  functions_help.c \
 	  instructions.c \
-	  push.c
+	  push.c \
+	  cases.c
 
 OBJECT = push_swap.o \
 		functions_help.o \
 		instructions.o \
-		push.o
+		push.o \
+		cases.o
 
 all : $(NAME)
 

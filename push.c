@@ -63,29 +63,7 @@ void print(int *numbers)
 
 void    push_swap(t_stacks stack)
 {
-    int i;
-
-    i = 3;
-    if((stack.a[i - 1] < stack.a[i]) && (stack.a[i - 1] < stack.a[i - 2])
-    && (stack.a[i - 2] > stack.a[i]))
-        sa(stack.a);
-    else if((stack.a[i - 1] < stack.a[i]) && (stack.a[i - 1] > stack.a[i - 2])
-    && (stack.a[i - 2] < stack.a[i]))
-    {
-        sa(stack.a);
-        rra(stack.a);
-    }
-    else if((stack.a[i - 1] < stack.a[i]) && (stack.a[i - 1] < stack.a[i - 2])
-    && (stack.a[i - 2] < stack.a[i]))
-        ra(stack.a);
-    else if((stack.a[i - 1] > stack.a[i]) && (stack.a[i - 1] > stack.a[i - 2])
-    && (stack.a[i - 2] > stack.a[i]))
-    {
-        sa(stack.a);
-        ra(stack.a);
-    }
-    else if((stack.a[i - 1] > stack.a[i]) && (stack.a[i - 1] > stack.a[i - 2])
-    && (stack.a[i - 2] < stack.a[i]))
-        rra(stack.a);
+    if(stack.a[0] == 3)
+        three_numbers(stack.a);
     print(stack.a);
 }

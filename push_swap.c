@@ -28,7 +28,6 @@ int main(int argc,char **argv)
         i++;
     }
     push_swap(stack);
-    //print(stack.a);
     free(stack.a);
     return(0);
 }

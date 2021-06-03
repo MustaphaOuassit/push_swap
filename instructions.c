@@ -56,28 +56,6 @@ int    ra(int *stack_a)
     if(check_sort(table,len_numbers))
         return(1);
     return(0);
-    /*
-    int len_numbers;
-    int table[stack_a[0]];
-    int take;
-    int i;
-
-    i = 0;
-    len_numbers = stack_a[0];
-    ft_remove_element(stack_a,table);
-    take = table[len_numbers - 1];
-    table[len_numbers - 1] = table[0];
-    while (i != len_numbers - 2)
-    {
-        table[i] = table[i + 1];
-        i++;
-    }
-    table[len_numbers - 2] = take;
-    swap_to(stack_a, table);
-    write(1,"ra\n",ft_strlen("ra") + 1);
-    if(check_sort(table, len_numbers))
-        return(1);
-    return(0);*/
 }
 
 int    rra(int *stack_a)

@@ -44,10 +44,24 @@ void    three_numbers(int *stack)
 void    five_numbers(t_stacks stack)
 {
     pb(stack);
+    four_numbers(stack);
+    pa(stack);
+    sa(stack.a);
+    pa(stack);
+}
+
+void    four_numbers(t_stacks stack)
+{
     pb(stack);
     three_numbers(stack.a);
+    pb(stack);
+    pb(stack);
+    three_numbers(stack.b);
+    ra(stack.b);
+    sa(stack.b);
     pa(stack);
-    add_numbers(stack);
+    if(stack.a[2] > stack.a[1])
+        sa(stack.a);
     pa(stack);
-    add_numbers(stack);
+    pa(stack);
 }

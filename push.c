@@ -25,15 +25,53 @@ void print(int *numbers,int len)
     printf("\n");    
 }
 
+int *reverse(int *stack, int len)
+{
+    int i;
+    int take;
+
+    take = 0;
+    i = 0;
+    stack[0] = stack[len - 1];
+    return(stack);
+}
+
+int     *sorting(int *stack, int len)
+{
+    int i;
+    int j;
+    int take;
+
+
+    i = 0;
+    j = 0;
+    take = 0;
+
+    while (i != len)                     
+	{
+        j = 0;
+		while (j != len)             
+		{
+			if (stack[j] < stack[i])                
+			{
+				take = stack[i];         
+				stack[i] = stack[j];            			
+                stack[j] = take;
+			}
+            j++;
+		}
+        i++;
+	}
+    reverse(stack,len);
+    return(stack);
+}
+
 void    push_swap(t_stacks *stack)
 {
-    pb(stack);
+    int *sort;
+
+    sort = (int*)malloc((stack->len_a)*sizeof(int));
     print(stack->a,stack->len_a);
-    print(stack->b,stack->len_b);
-    pb(stack);
-    print(stack->a,stack->len_a);
-    print(stack->b,stack->len_b);
-    pa(stack);
-    print(stack->a,stack->len_a);
-    print(stack->b,stack->len_b);
+    sort = sorting(stack->a,stack->len_a);
+    print(sort,stack->len_a);
 }

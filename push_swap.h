@@ -21,24 +21,18 @@ typedef struct push_swap
 {
     int *a;
     int *b;
-    int len_numbers;
+    int len_a;
+    int len_b;
 }           t_stacks;
-
+int g_len;
 size_t ft_strlen(const char *str);
 int		ft_atoi(const char *str);
-void	ft_remove_element(int *stack, int *table);
-int     check_sort(int *numbers, int len_numbers);
-void    swap_to(int *stack, int *table);
-void    print(int *numbers);
-int		ft_size_table(int *table);
-void    push_swap(t_stacks stack);
+void    print(int *numbers,int len);
+void    push_swap(t_stacks *stack);
 void    three_numbers(int *stack);
-void    four_numbers(t_stacks stack);
-void    five_numbers(t_stacks stack);
-void    add_numbers(t_stacks stack);
-int     sa(int *stack_a);
-int     ra(int *stack_a);
-int     rra(int *stack_a);
-int     pb(t_stacks stack);
-int     pa(t_stacks stack);
+void     sa(t_stacks stack);
+void     ra(t_stacks stack);
+void     rra(t_stacks stack);
+void     pb(t_stacks *stack);
+void     pa(t_stacks *stack);
 #endif

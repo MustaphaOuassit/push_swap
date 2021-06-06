@@ -25,18 +25,19 @@ void print(int *numbers,int len)
     printf("\n");    
 }
 
-int *reverse(int *stack, int len)
+void    fill_table(int *stack, int len, int *table)
 {
     int i;
-    int take;
 
-    take = 0;
     i = 0;
-    stack[0] = stack[len - 1];
-    return(stack);
+    while (i != len)
+    {
+        table[i] = stack[i];
+        i++;
+    }
 }
 
-int     *sorting(int *stack, int len)
+void     sorting(int *stack, int len, int *table)
 {
     int i;
     int j;
@@ -47,31 +48,29 @@ int     *sorting(int *stack, int len)
     j = 0;
     take = 0;
 
+    fill_table(stack,len,table);
     while (i != len)                     
 	{
         j = 0;
 		while (j != len)             
 		{
-			if (stack[j] < stack[i])                
+			if (table[j] > table[i])                
 			{
-				take = stack[i];         
-				stack[i] = stack[j];            			
-                stack[j] = take;
+				take = table[i];         
+				table[i] = table[j];
+                table[j] = take;
 			}
             j++;
 		}
         i++;
 	}
-    reverse(stack,len);
-    return(stack);
 }
 
 void    push_swap(t_stacks *stack)
 {
-    int *sort;
-
-    sort = (int*)malloc((stack->len_a)*sizeof(int));
+    int table[stack->len_a];
+    
     print(stack->a,stack->len_a);
-    sort = sorting(stack->a,stack->len_a);
-    print(sort,stack->len_a);
+    sorting(stack->a,stack->len_a,table);
+    print(table,stack->len_a);
 }

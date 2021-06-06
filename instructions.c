@@ -21,40 +21,40 @@ void sa(t_stacks stack)
      stack.a[stack.len_a - 2] = take;
 }
 
-void    ra(t_stacks stack)
+void    ra(t_stacks *stack)
 {
     int take;
     int i;
     int len;
     
     i = 0;
-    len = stack.len_a;
-    take = stack.a[0];
-    stack.a[0] = stack.a[stack.len_a - 1];
-    while (i != stack.len_a - 1)
+    len = stack->len_a;
+    take = stack->a[0];
+    stack->a[0] = stack->a[stack->len_a - 1];
+    while (i != stack->len_a - 1)
     {
-       stack.a[len - 1] = stack.a[len - 2];
+       stack->a[len - 1] = stack->a[len - 2];
         len--;
         i++;
     }
-    stack.a[1] = take;
+    stack->a[1] = take;
     write(1,"ra\n",ft_strlen("ra") + 1);
 }
 
-void    rra(t_stacks stack)
+void    rra(t_stacks *stack)
 {
     int take;
     int i;
 
     i = 0;
-    take = stack.a[stack.len_a - 1];
-    stack.a[stack.len_a - 1] = stack.a[0];
-    while (i != stack.len_a - 2)
+    take = stack->a[stack->len_a - 1];
+    stack->a[stack->len_a - 1] = stack->a[0];
+    while (i != stack->len_a - 2)
     {
-        stack.a[i] = stack.a[i + 1];
+        stack->a[i] = stack->a[i + 1];
         i++;
     }
-    stack.a[stack.len_a - 2] = take;
+    stack->a[stack->len_a - 2] = take;
     write(1,"rra\n",ft_strlen("rra") + 1);
 }
 
@@ -74,7 +74,7 @@ void     pb(t_stacks *stack)
 {
     if(stack->len_a > 0)
     {
-        stack->b[stack->len_b] = stack->a[stack->len_a - 1];
+        stack->b[stack->len_b] = stack->a[0];
         stack->len_b = stack->len_b + 1;
         stack->len_a = stack->len_a - 1;
         write(1,"pb\n",ft_strlen("pb") + 1);

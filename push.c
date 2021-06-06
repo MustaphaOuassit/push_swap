@@ -37,6 +37,85 @@ void    fill_table(int *stack, int len, int *table)
     }
 }
 
+int     check_in_chunck(int *table,int start, int end, int stack)
+{
+    while (start != end + 1)
+    {
+        if(table[start] == stack)
+            return(1);
+        start++;
+    }
+    return(0);
+}
+
+void     chuncks(t_stacks *stack,int start, int end, int *table)
+{
+    int i;
+    int len;
+    int count;
+    int j;
+    int t;
+
+    i = 0;
+    j = 0;
+    t = 0;
+    len = stack->len_a;
+    count = stack->len_a / 2;
+    while (i != stack->len_a)
+    {
+        if (check_in_chunck(table,start,end,stack->a[i]))
+        {
+            j = 0;
+            t = stack->a[i];
+            while (j != stack->len_a)
+            {
+                if(stack->a[0] == t)
+                {
+                    pb(stack);
+                    count = stack->len_a / 2;
+                    i = 0;
+                    break;
+                }
+                else
+                    {
+                        if(i <= count)
+                            ra(stack);
+                        else
+                            rra(stack);
+                    }
+                j++;
+            }
+        }
+        i++;
+    }
+}
+
+void    check_in_stack_a(t_stacks *stack, int *table, int len)
+{
+    int i;
+    int j;
+    int start;
+    int nb = 2;
+
+    i = 0;
+    j = 1;
+    start = 0;
+    while(i != len)
+    {
+        if(j == nb)
+        {
+            if(start > 0)
+                start = start + 1;
+            chuncks(stack,start,i,table);
+            start = i;
+            j = 0;
+            break;
+        }
+        i++;
+        j++;
+    }
+}
+
 void     sorting(int *stack, int len, int *table)
 {
     int i;
@@ -69,8 +148,9 @@ void     sorting(int *stack, int len, int *table)
 void    push_swap(t_stacks *stack)
 {
     int table[stack->len_a];
-    
-    print(stack->a,stack->len_a);
     sorting(stack->a,stack->len_a,table);
-    print(table,stack->len_a);
+    check_in_stack_a(stack,table,stack->len_a);
+    print(stack->a,stack->len_a);
+    print(stack->b,stack->len_b);
+
 }

@@ -59,7 +59,8 @@ void     chuncks(t_stacks *stack,int start, int end, int *table)
     i = 0;
     j = 0;
     t = 0;
-    len = stack->len_a;
+    len = 0;
+    printf("start : %d  end : %d\n",start,end);
     count = stack->len_a / 2;
     while (i != stack->len_a)
     {
@@ -73,7 +74,8 @@ void     chuncks(t_stacks *stack,int start, int end, int *table)
                 {
                     pb(stack);
                     count = stack->len_a / 2;
-                    i = 0;
+                    len = len + 1;
+                    i = len - 2;
                     break;
                 }
                 else
@@ -109,7 +111,6 @@ void    check_in_stack_a(t_stacks *stack, int *table, int len)
             chuncks(stack,start,i,table);
             start = i;
             j = 0;
-            break;
         }
         i++;
         j++;
@@ -152,5 +153,4 @@ void    push_swap(t_stacks *stack)
     check_in_stack_a(stack,table,stack->len_a);
     print(stack->a,stack->len_a);
     print(stack->b,stack->len_b);
-
 }

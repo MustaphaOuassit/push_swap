@@ -51,7 +51,6 @@ int     check_in_chunck(int *table,int start, int end, int stack)
 void     chuncks(t_stacks *stack,int start, int end, int *table)
 {
     int i;
-    int len;
     int count;
     int j;
     int t;
@@ -59,7 +58,6 @@ void     chuncks(t_stacks *stack,int start, int end, int *table)
     i = 0;
     j = 0;
     t = 0;
-    len = 0;
     count = stack->len_a / 2;
     while (i != stack->len_a)
     {
@@ -73,8 +71,7 @@ void     chuncks(t_stacks *stack,int start, int end, int *table)
                 {
                     pb(stack);
                     count = stack->len_a / 2;
-                    len = len + 1;
-                    i = len - 2;
+                    i = -1;
                     break;
                 }
                 else
@@ -96,28 +93,31 @@ void    check_in_stack_a(t_stacks *stack, int *table, int len)
     int i;
     int j;
     int start;
-    int nb = 4;
+    int nb = 40;
+    int t;
 
     i = 0;
     j = 1;
+    t = 0;
     start = 0;
     while(i != len)
-    {
-        if((len - 1) - i >= nb)
-        {
-            printf("j : %d\n", j);
-            if(j == nb)
-            {
-                if(start > 0)
-                    start = start + 1;
-                chuncks(stack,start,i,table);
-                start = i;
-                j = 0;
-            }
+    {  
+        t = j - 1;
+        if(j == nb)
+         {
+             if(start > 0)
+                start = start + 1;
+            chuncks(stack,start,i,table);
+            start = i;
+            j = 0;
         }
         i++;
         j++;
     }
+    if((j < len) && (t > 0))
+        chuncks(stack,(len - 1) - t,len - 1,table);
+    else
+        chuncks(stack,0,len - 1,table);
 }
 
 void     sorting(int *stack, int len, int *table)

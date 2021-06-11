@@ -37,18 +37,21 @@ void    fill_table(int *stack, int len, int *table)
     }
 }
 
-int     check_in_chunck(int *table,int start, int end, int stack)
+int     check_in_chunck(int *table,int len, int stack)
 {
-    while (start != end + 1)
+    int i;
+
+    i = 0;
+    while (i != len)
     {
-        if(table[start] == stack)
+        if(table[i] == stack)
             return(1);
-        start++;
+        i++;
     }
     return(0);
 }
 
-void     chuncks(t_stacks *stack,int start, int end, int *table)
+void     chuncks(t_stacks *stack, int *table,int len)
 {
     int i;
     int count;
@@ -58,16 +61,19 @@ void     chuncks(t_stacks *stack,int start, int end, int *table)
     i = 0;
     j = 0;
     t = 0;
+    
+   // print(table,len);
     count = stack->len_a / 2;
     while (i != stack->len_a)
     {
-        if (check_in_chunck(table,start,end,stack->a[i]))
+
+        if (check_in_chunck(table,len,stack->a[i]))
         {
             j = 0;
             t = stack->a[i];
             while (j != stack->len_a)
             {
-                if(stack->a[0] == t)
+                if(stack->a[stack->len_a - 1] == t)
                 {
                     pb(stack);
                     count = stack->len_a / 2;
@@ -76,10 +82,10 @@ void     chuncks(t_stacks *stack,int start, int end, int *table)
                 }
                 else
                     {
-                        if(i <= count)
-                            ra(stack);
-                        else
+                        if(i < count)
                             rra(stack);
+                        else
+                            ra(stack);
                     }
                 j++;
             }
@@ -91,35 +97,50 @@ void     chuncks(t_stacks *stack,int start, int end, int *table)
 void    check_in_stack_a(t_stacks *stack, int *table, int len)
 {
     int i;
-    int j;
-    int start;
-    int nb = 40;
     int t;
+    int j;
+    int m;
+    int take[len];
+    int r;
 
     i = 0;
-    j = 1;
-    t = 0;
-    start = 0;
-    while(i != len)
-    {  
-        t = j - 1;
-        if(j == nb)
-         {
-             if(start > 0)
-                start = start + 1;
-            chuncks(stack,start,i,table);
-            start = i;
+    t = 1;
+    j = 0;
+    m = 0;
+    r = 0;
+    while (i != len)
+    {
+        if(j == 40)
+        {
+            t++;
             j = 0;
         }
         i++;
         j++;
     }
-    if((j < len) && (t > 0))
-        chuncks(stack,(len - 1) - t,len - 1,table);
-    else
-        chuncks(stack,0,len - 1,table);
+    i = 0;
+    j = 0;
+    while (i != t)
+    {
+        r = 0;
+        while (j != len)
+        {
+            if(m == 40)
+            {
+                break;
+            }
+            else
+                take[r] = table[j];
+            m++;
+            j++;
+            r++;
+        }
+        chuncks(stack,take,m);
+        m = 0;
+        i++;
+    }
 }
-
+// 28 29 36 12 32 27 2 15 40 37 17 38 20 6 13 24 1 26 4 19 11 5 18 3 34 200 35 -89 33 16 25 9 23 14 21 7 0 22 77 100 900
 void     sorting(int *stack, int len, int *table)
 {
     int i;
@@ -149,11 +170,66 @@ void     sorting(int *stack, int len, int *table)
 	}
 }
 
+int is_in_table(t_stacks *stack,int nb)
+{
+    int i;
+
+    i = 0;
+    while (i != stack->len_b)
+    {
+        if(stack->b[i] == nb)
+            break;
+        i++;
+    }
+    return(i);
+}
+
+void    sort_b_to_a(t_stacks *stack,int *table)
+{
+    int i;
+    int t;
+    int indic;
+    int j;
+    int count;
+
+    i = 0;
+    j = 0;
+    indic = 0;
+    count = stack->len_b / 2;
+    t = stack->len_b;
+
+    while (i != t)
+    {
+        indic = is_in_table(stack,table[(t - 1) - i]);
+        j = 0;
+        while (j != t)
+        {
+            if(stack->b[stack->len_b - 1] == table[(t - 1) - i])
+            {
+                pa(stack);
+                count = stack->len_b / 2;
+                break;
+            }
+            else
+            {
+                if(indic < count)
+                    rrb(stack);
+                else
+                    rb(stack);
+            }
+            j++;
+        }
+        
+        i++;
+    }
+    
+}
+
 void    push_swap(t_stacks *stack)
 {
     int table[stack->len_a];
     sorting(stack->a,stack->len_a,table);
     check_in_stack_a(stack,table,stack->len_a);
-    print(stack->a,stack->len_a);
-    print(stack->b,stack->len_b);
+    sort_b_to_a(stack, table);
+    //print(stack->a,stack->len_a);
 }

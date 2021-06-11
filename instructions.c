@@ -25,23 +25,6 @@ void    ra(t_stacks *stack)
 {
     int take;
     int i;
-
-    i = 0;
-    take = stack->a[stack->len_a - 1];
-    stack->a[stack->len_a - 1] = stack->a[0];
-    while (i != stack->len_a - 2)
-    {
-        stack->a[i] = stack->a[i + 1];
-        i++;
-    }
-    stack->a[stack->len_a - 2] = take;
-    write(1,"ra\n",ft_strlen("ra") + 1);
-}
-
-void    rra(t_stacks *stack)
-{
-    int take;
-    int i;
     int len;
     
     i = 0;
@@ -55,22 +38,30 @@ void    rra(t_stacks *stack)
         i++;
     }
     stack->a[1] = take;
-    write(1,"rra\n",ft_strlen("rra") + 1);
+    write(1,"ra\n",ft_strlen("ra") + 1);
 }
 
-void     pa(t_stacks *stack)
+void    rb(t_stacks *stack)
 {
-
-    if(stack->len_b > 0)
+    int take;
+    int i;
+    int len;
+    
+    i = 0;
+    len = stack->len_b;
+    take = stack->b[0];
+    stack->b[0] = stack->b[stack->len_b - 1];
+    while (i != stack->len_b - 1)
     {
-        stack->a[stack->len_a] = stack->b[stack->len_b - 1];
-        stack->len_a = stack->len_a + 1;
-        stack->len_b = stack->len_b - 1;
-        write(1,"pa\n",ft_strlen("pa") + 1);
+       stack->b[len - 1] = stack->b[len - 2];
+        len--;
+        i++;
     }
+    stack->b[1] = take;
+    write(1,"rb\n",ft_strlen("rb") + 1);
 }
 
-void    push(t_stacks *stack)
+void    rra(t_stacks *stack)
 {
     int take;
     int i;
@@ -84,30 +75,44 @@ void    push(t_stacks *stack)
         i++;
     }
     stack->a[stack->len_a - 2] = take;
+    write(1,"rra\n",ft_strlen("rra") + 1);
+}
+
+void    rrb(t_stacks *stack)
+{
+    int take;
+    int i;
+
+    i = 0;
+    take = stack->b[stack->len_b - 1];
+    stack->b[stack->len_b - 1] = stack->b[0];
+    while (i != stack->len_b - 2)
+    {
+        stack->b[i] = stack->b[i + 1];
+        i++;
+    }
+    stack->b[stack->len_b - 2] = take;
+    write(1,"rrb\n",ft_strlen("rrb") + 1);
+}
+
+void     pa(t_stacks *stack)
+{
+    if(stack->len_b > 0)
+    {
+        stack->a[stack->len_a] = stack->b[stack->len_b - 1];
+        stack->len_a = stack->len_a + 1;
+        stack->len_b = stack->len_b - 1;
+        write(1,"pa\n",ft_strlen("pa") + 1);
+    }
 }
 
 void     pb(t_stacks *stack)
 {
-    int take;
-
-    take = 0;
     if(stack->len_a > 0)
     {
-        take = stack->a[0];
-        stack->a[0] = stack->a[stack->len_a - 1];
-        stack->a[stack->len_a - 1] = take;
         stack->b[stack->len_b] = stack->a[stack->len_a - 1];
-
         stack->len_b = stack->len_b + 1;
         stack->len_a = stack->len_a - 1;
-        if(stack->len_a > 2)
-            push(stack);
-        else if(stack->len_a == 2)
-        {
-            take = stack->a[0];
-            stack->a[0] = stack->a[1];
-            stack->a[1] = take;
-        }
         write(1,"pb\n",ft_strlen("pb") + 1);
     }
 }

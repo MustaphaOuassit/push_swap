@@ -32,7 +32,9 @@ void    push_swap(t_stacks *stack);
 void    three_numbers(int *stack);
 void     sa(t_stacks stack);
 void     ra(t_stacks *stack);
+void     rb(t_stacks *stack);
 void     rra(t_stacks *stack);
+void     rrb(t_stacks *stack);
 void     pb(t_stacks *stack);
 void     pa(t_stacks *stack);
 #endif

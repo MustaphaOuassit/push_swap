@@ -30,6 +30,7 @@ int		ft_atoi(const char *str);
 void    print(int *numbers,int len);
 void    push_swap(t_stacks *stack);
 void    three_numbers(int *stack,t_stacks *stk);
+void    four_numbers(int *stack_a, t_stacks *stack);
 void     sa(t_stacks *stack);
 void     ra(t_stacks *stack);
 void     rb(t_stacks *stack);

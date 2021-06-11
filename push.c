@@ -240,14 +240,16 @@ void    push_swap(t_stacks *stack)
             sa(stack);
     }
     if(stack->len_a == 3)
-    {
         three_numbers(stack->a,stack);
-    }
+    if(stack->len_a == 4)
+        four_numbers(stack->a,stack);
     if(stack->len_a > 5)
     {
         sorting(stack->a,stack->len_a,table);
         check_in_stack_a(stack,table,stack->len_a);
         sort_b_to_a(stack, table);
     }
-    //print(stack->a,stack->len_a);
+    /*
+    print(stack->a,stack->len_a);
+    print(stack->b,stack->len_b);*/
 }

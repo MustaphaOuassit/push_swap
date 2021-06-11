@@ -12,6 +12,13 @@
 
 #include "push_swap.h"
 
+int     check_sort(t_stacks *stack)
+{
+    if(stack->a[0] < stack->a[1])
+        return(0);
+    return(1);
+}
+
 void print(int *numbers,int len)
 {
     int i;
@@ -61,8 +68,7 @@ void     chuncks(t_stacks *stack, int *table,int len)
     i = 0;
     j = 0;
     t = 0;
-    
-   // print(table,len);
+
     count = stack->len_a / 2;
     while (i != stack->len_a)
     {
@@ -140,7 +146,6 @@ void    check_in_stack_a(t_stacks *stack, int *table, int len)
         i++;
     }
 }
-// 28 29 36 12 32 27 2 15 40 37 17 38 20 6 13 24 1 26 4 19 11 5 18 3 34 200 35 -89 33 16 25 9 23 14 21 7 0 22 77 100 900
 void     sorting(int *stack, int len, int *table)
 {
     int i;
@@ -228,8 +233,21 @@ void    sort_b_to_a(t_stacks *stack,int *table)
 void    push_swap(t_stacks *stack)
 {
     int table[stack->len_a];
-    sorting(stack->a,stack->len_a,table);
-    check_in_stack_a(stack,table,stack->len_a);
-    sort_b_to_a(stack, table);
+
+    if(stack->len_a == 2)
+    {
+        if(!check_sort(stack))
+            sa(stack);
+    }
+    if(stack->len_a == 3)
+    {
+        three_numbers(stack->a,stack);
+    }
+    if(stack->len_a > 5)
+    {
+        sorting(stack->a,stack->len_a,table);
+        check_in_stack_a(stack,table,stack->len_a);
+        sort_b_to_a(stack, table);
+    }
     //print(stack->a,stack->len_a);
 }

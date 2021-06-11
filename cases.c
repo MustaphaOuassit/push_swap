@@ -12,31 +12,23 @@
 
 
 #include "push_swap.h"
-/*
-void    three_numbers(int *stack)
-{
-    int i;
 
-    i = stack[0];
-    if((stack[i - 1] < stack[i]) && (stack[i - 1] < stack[i - 2])
-    && (stack[i - 2] > stack[i]))
+void    three_numbers(int *stack_a, t_stacks *stack)
+{
+    if((stack_a[2] > stack_a[1]) && (stack_a[1] < stack_a[0]) && (stack_a[0] > stack_a[2]))
         sa(stack);
-    else if((stack[i - 1] < stack[i]) && (stack[i - 1] > stack[i - 2])
-    && (stack[i - 2] < stack[i]))
+    else if((stack_a[2] > stack_a[1]) && (stack_a[1] > stack_a[0]) && (stack_a[0] < stack_a[2]))
     {
         sa(stack);
         rra(stack);
     }
-    else if((stack[i - 1] < stack[i]) && (stack[i - 1] < stack[i - 2])
-    && (stack[i - 2] < stack[i]))
+    else if((stack_a[2] > stack_a[1]) && (stack_a[1] < stack_a[0]) && (stack_a[0] < stack_a[2]))
         ra(stack);
-    else if((stack[i - 1] > stack[i]) && (stack[i - 1] > stack[i - 2])
-    && (stack[i - 2] > stack[i]))
+    else if((stack_a[2] < stack_a[1]) && (stack_a[1] > stack_a[0]) && (stack_a[0] > stack_a[2]))
     {
         sa(stack);
         ra(stack);
     }
-    else if((stack[i - 1] > stack[i]) && (stack[i - 1] > stack[i - 2])
-    && (stack[i - 2] < stack[i]))
+    else if((stack_a[2] < stack_a[1]) && (stack_a[1] > stack_a[0]) && (stack_a[0] < stack_a[2]))
         rra(stack);
-}*/
+}

@@ -12,13 +12,14 @@
 
 #include "push_swap.h"
 
-void sa(t_stacks stack)
+void sa(t_stacks *stack)
 {
     int take;
 
-    take = stack.a[stack.len_a - 1];
-     stack.a[stack.len_a - 1] = stack.a[stack.len_a - 2];
-     stack.a[stack.len_a - 2] = take;
+    take = stack->a[stack->len_a - 1];
+     stack->a[stack->len_a - 1] = stack->a[stack->len_a - 2];
+     stack->a[stack->len_a - 2] = take;
+     write(1,"sa\n",ft_strlen("sa") + 1);
 }
 
 void    ra(t_stacks *stack)

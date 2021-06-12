@@ -12,22 +12,32 @@
 
 NAME = push_swap
 
+LIB = push_swap.h
+
 SRC = push_swap.c \
 	  functions_help.c \
 	  instructions.c \
 	  push.c \
-	  cases.c
+	  cases.c \
+	  contunue_push.c \
+	  contunue_instructions.c \
+	  contunue_cases.c \
+	  contunue_chunck.c
 
 OBJECT = push_swap.o \
 		functions_help.o \
 		instructions.o \
 		push.o \
-		cases.o
+		cases.o \
+		contunue_push.o \
+		contunue_instructions.o \
+		contunue_cases.o \
+		contunue_chunck.o
 
 all : $(NAME)
 
-$(NAME):
-	@gcc -Wall -Wextra -Werror -fsanitize=address -I /Users/mouassit/Desktop/push_swap $(SRC) -L /Users/mouassit/Desktop/push_swap -o $(NAME)
+$(NAME): $(SRC) $(LIB)
+	@gcc -Wall -Wextra -Werror -I /Users/mouassit/Desktop/push_swap $(SRC) -L /Users/mouassit/Desktop/push_swap -o $(NAME)
 
 
 

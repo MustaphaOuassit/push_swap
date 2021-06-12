@@ -12,6 +12,28 @@
 
 #include "push_swap.h"
 
+int     check_sorting(t_stacks *stack)
+{
+    int i;
+    int j;
+    int t;
+    i = 0;
+    j = 0;
+    t = 0;
+    while (i != stack->len_a)
+    {
+        j = i + 1;
+        while (j != stack->len_a)
+        {
+            if(stack->a[i] < stack->a[j])
+                return(0);
+            j++;
+        }
+        i++;
+    }
+    return(1);
+}
+
 int     check_sort(t_stacks *stack)
 {
     if(stack->a[0] < stack->a[1])
@@ -234,20 +256,27 @@ void    push_swap(t_stacks *stack)
 {
     int table[stack->len_a];
 
-    if(stack->len_a == 2)
+    if(!check_sorting(stack))
     {
-        if(!check_sort(stack))
-            sa(stack);
-    }
-    if(stack->len_a == 3)
-        three_numbers(stack->a,stack);
-    if(stack->len_a == 4)
-        four_numbers(stack->a,stack);
-    if(stack->len_a > 5)
-    {
-        sorting(stack->a,stack->len_a,table);
-        check_in_stack_a(stack,table,stack->len_a);
-        sort_b_to_a(stack, table);
+        if(stack->len_a == 2)
+        {
+            if(!check_sort(stack))
+                sa(stack);
+        }
+        if(stack->len_a == 3)
+            three_numbers(stack->a,stack);
+        if(stack->len_a == 4)
+            four_numbers(stack->a,stack);
+        if(stack->len_a == 5)
+        {
+            five_numbers(stack->a,stack);
+        }
+        if(stack->len_a > 5)
+        {
+            sorting(stack->a,stack->len_a,table);
+            check_in_stack_a(stack,table,stack->len_a);
+            sort_b_to_a(stack, table);
+        }
     }
     /*
     print(stack->a,stack->len_a);

@@ -27,10 +27,16 @@ typedef struct push_swap
 int g_len;
 size_t ft_strlen(const char *str);
 int		ft_atoi(const char *str);
+int		ft_isdigit(char c);
+int		ft_strcmp(char *s1, const char *s2);
 void    print(int *numbers,int len);
 void    push_swap(t_stacks *stack);
 void    three_numbers(int *stack,t_stacks *stk);
 void    four_numbers(int *stack_a, t_stacks *stack);
+void    five_numbers(int *stack_a, t_stacks *stack);
+int     check_errors(int argc,t_stacks *stack);
+int 	 number(int argc, char **argv);
+int     check_int(int argc, char **argv);
 void     sa(t_stacks *stack);
 void     ra(t_stacks *stack);
 void     rb(t_stacks *stack);

@@ -22,12 +22,20 @@ int main(int argc,char **argv)
     stack.len_a = argc - 1;
     stack.len_b = 0;
     i = 0;
-    while(i != argc - 1)
+    if(number(argc,argv) && check_int(argc,argv))
     {
-        stack.a[(argc - 1) - (i + 1)] = ft_atoi(argv[i + 1]);
-        i++;
+        while(i != argc - 1)
+        {
+            stack.a[(argc - 1) - (i + 1)] = ft_atoi(argv[i + 1]);
+            i++;
+        }
+        if(!check_errors(argc -1,&stack))
+            push_swap(&stack);
+        else
+            write(1,"Error\n",ft_strlen("Error") + 1);
+        free(stack.a);
     }
-    push_swap(&stack);
-    free(stack.a);
+    else
+        write(1,"Error\n",ft_strlen("Error") + 1);
     return(0);
 }
